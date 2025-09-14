@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 
 // routes importing
 import authRoutes from "./routes/auth.routes.js";
+import problemRoutes from "./routes/problem.routes.js";
 
 dotenv.config();
 
@@ -13,12 +14,13 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 8080;
 
-app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/problems", problemRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 app.get("/", (req, res) => {
-    res.send("Welcome to coderank");
+  res.send("Welcome to coderank");
 });
