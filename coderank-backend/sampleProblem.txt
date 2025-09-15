@@ -1,0 +1,95 @@
+{
+    "title": "Find Maximum of Three Numbers",
+    "description": "Given three integers a, b, and c, find the maximum among them and return it.",
+    "difficulty": "EASY",
+    "tags": [
+        "math",
+        "comparison",
+        "conditional"
+    ],
+    "examples": {
+        "PYTHON": {
+            "input": "3 7 5",
+            "output": "7",
+            "explanation": "Among 3, 7, and 5, the largest number is 7."
+        },
+        "JAVASCRIPT": {
+            "input": "-10 -5 -20",
+            "output": "-5",
+            "explanation": "Among -10, -5, and -20, the largest number is -5."
+        }
+    },
+    "constraints": "-10^9 ≤ a, b, c ≤ 10^9",
+    "testcases": [
+        {
+            "input": "1 2 3",
+            "output": "3"
+        },
+        {
+            "input": "10 10 5",
+            "output": "10"
+        },
+        {
+            "input": "-1 -2 -3",
+            "output": "-1"
+        }
+    ],
+    "codeSnippets": {
+        "JAVASCRIPT": "const fs = require('fs');\n\nfunction findMaxOfThree(a, b, c) {\n    // Write your code here\n    // Return the maximum of a, b, and c\n    return Math.max(a, b, c);\n}\n\n// Reading input from stdin\nconst input = fs.readFileSync(0, 'utf-8').trim();\nconst [a, b, c] = input.split(' ').map(Number);\n\nconsole.log(findMaxOfThree(a, b, c));",
+        "PYTHON": "def find_max_of_three(a, b, c):\n    # Write your code here\n    # Return the maximum of a, b, and c\n    return max(a, b, c)\n\nimport sys\ninput_line = sys.stdin.read()\na, b, c = map(int, input_line.split())\nprint(find_max_of_three(a, b, c))",
+        "JAVA": "import java.util.Scanner;\n\npublic class Main {\n    public static int findMaxOfThree(int a, int b, int c) {\n        // Write your code here\n        // Return the maximum of a, b, and c\n        return Math.max(a, Math.max(b, c));\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n        System.out.println(findMaxOfThree(a, b, c));\n    }\n}"
+    },
+    "referenceSolutions": {
+        "JAVASCRIPT": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf-8').trim();\nconst [a, b, c] = input.split(' ').map(Number);\nconsole.log(Math.max(a, b, c));",
+        "PYTHON": "import sys\ninput_line = sys.stdin.read()\na, b, c = map(int, input_line.split())\nprint(max(a, b, c))",
+        "JAVA": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n        System.out.println(Math.max(a, Math.max(b, c)));\n    }\n}"
+    }
+},
+-------------------- Problem 2 ------------------------------
+{
+    "title": "Add Two Numbers",
+    "description": "Given two numbers a and b add them up and return the outout",
+    "difficulty": "EASY",
+    "tags": [
+        "math",
+        "operators",
+        "addition"
+    ],
+    "examples": {
+        "PYTHON": {
+            "input": "3 7",
+            "output": "10",
+            "explanation": "Adding 3 and 7 gives 10."
+        },
+        "JAVASCRIPT": {
+            "input": "-5 12",
+            "output": "7",
+            "explanation": "Adding -5 and 12 gives 7."
+        }
+    },
+    "constraints": "-10^9 ≤ a, b ≤ 10^9",
+    "testcases": [
+        {
+            "input": "100 200",
+            "output": "300"
+        },
+        {
+            "input": "-500 -600",
+            "output": "-1100"
+        },
+        {
+            "input": "0 0",
+            "output": "0"
+        }
+    ],
+ "codeSnippets": {
+        "JAVASCRIPT": "const fs = require('fs');\n\nfunction addTwoNumbers(a, b) {\n    // Write your code here\n    // Return the sum of a and b\n    return a + b;\n}\n\n// Reading input from stdin (using fs to read all input)\nconst input = fs.readFileSync(0, 'utf-8').trim();\nconst [a, b] = input.split(' ').map(Number);\n\nconsole.log(addTwoNumbers(a, b));",
+        "PYTHON": "def add_two_numbers(a, b):\n    # Write your code here\n    # Return the sum of a and b\n    return a + b\n\nimport sys\ninput_line = sys.stdin.read()\na, b = map(int, input_line.split())\nprint(add_two_numbers(a, b))",
+        "JAVA": "import java.util.Scanner;\n\npublic class Main {\n    public static int addTwoNumbers(int a, int b) {\n        // Write your code here\n        // Return the sum of a and b\n        return a + b;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        System.out.println(addTwoNumbers(a, b));\n    }\n}"
+    },
+    "referenceSolutions": {
+        "JAVASCRIPT": "const fs = require('fs');\n\n// Reading input from stdin (using fs to read all input)\nconst input = fs.readFileSync(0, 'utf-8').trim();\nconst [a, b] = input.split(' ').map(Number);\n\nconsole.log(a + b);",
+        "PYTHON": "import sys\ninput_line = sys.stdin.read()\na, b = map(int, input_line.split())\nprint(a + b)",
+        "JAVA": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        System.out.println(a + b);\n    }\n}"
+    }
+}
