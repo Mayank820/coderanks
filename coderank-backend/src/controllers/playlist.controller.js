@@ -51,11 +51,16 @@ export const getAllListDetails = async (req, res) => {
 };
 
 export const getPlaylistDetails = async (req, res) => {
-  const { playListId } = req.params;
+  const { playlistId } = req.params;
+  //   console.log(playlistId );
+  if (!playlistId) {
+    return res.status(400).json({ error: "Playlist ID is required" });
+  }
+
   try {
     const playList = await db.playlist.findUnique({
       where: {
-        id: playListId,
+        id: playlistId,
         userId: req.user.id,
       },
       include: {
@@ -83,7 +88,7 @@ export const getPlaylistDetails = async (req, res) => {
 };
 
 export const addProblemToPlaylist = async (req, res) => {
-  const { playListId } = req.params;
+  const { playlistId  } = req.params;
 
   // array of problem ids, means multiple problems to be added to playlist
   const { problemIds } = req.body;
@@ -97,7 +102,7 @@ export const addProblemToPlaylist = async (req, res) => {
     // check if problem is already exist in playlist
     const problemInPlaylist = await db.problemInPlaylist.findMany({
       where: {
-        playlistId: playListId,
+        playListId: playlistId ,
         problemId: { in: problemIds },
       },
     });
@@ -111,7 +116,7 @@ export const addProblemToPlaylist = async (req, res) => {
     // create many problem in playlist
     const problemsInPlaylist = await db.problemInPlaylist.createMany({
       data: problemIds.map((problemId) => ({
-        playlistId: playListId,
+        playListId: playlistId ,
         problemId,
       })),
     });
@@ -128,11 +133,11 @@ export const addProblemToPlaylist = async (req, res) => {
 };
 
 export const deletePlaylist = async (req, res) => {
-  const { playListId } = req.params;
+  const { playlistId  } = req.params;
   try {
     const deletePlaylist = await db.playlist.delete({
       where: {
-        id: playListId,
+        id: playlistId ,
         // userId: req.user.id,
       },
     });
