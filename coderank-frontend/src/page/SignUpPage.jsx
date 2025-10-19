@@ -7,7 +7,6 @@ import { Eye, Code, EyeOff, Loader2, Mail, Lock } from "lucide-react";
 import AuthImagePattern from "../components/AuthImagePattern";
 import { useAuthStore } from "../store/useAuthStore";
 
-
 const signUpSchema = z.object({
   email: z.string().email("Enter vaild email"),
   password: z.string().min(8, "Password must be at least 8 characters long"),
@@ -16,8 +15,8 @@ const signUpSchema = z.object({
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  // const {signup , isSigninUp} = useAuthStore()
-  const { signup, isSigninUp } = useState();
+  const { signup, isSigninUp } = useAuthStore();
+  // const { signup, isSigninUp } = useState();
   const {
     register,
     handleSubmit,
@@ -25,8 +24,13 @@ const SignUpPage = () => {
   } = useForm({ resolver: zodResolver(signUpSchema) });
 
   const onSubmit = async (data) => {
-   console.log(data);
-   
+    // console.log(data);
+    try {
+      await signup(data);
+      console.log("signup data", data);
+    } catch (error) {
+      console.error("SignUp failed:", error);
+    }
   };
 
   return (
