@@ -565,12 +565,13 @@ const CreateProblemForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (value) => {
+    console.log(value);
     try {
       setIsLoading(true);
       const res = await axiosInstance.post("/problems/create-problem", value);
       console.log(res.data);
-      toast.success(res.data.message || "Problem Created successfully⚡");
-      navigation("/");
+      toast.success("Problem created successfully");
+      navigation("/");  // after success it navigate to home page.
     } catch (error) {
       console.log(error);
       toast.error("Error creating problem");
